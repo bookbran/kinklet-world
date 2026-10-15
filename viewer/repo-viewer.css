@@ -1,0 +1,37 @@
+/* @astrolabe-premium */
+/* repo-viewer.css: a repository's public world (publish-repo-world B.2).
+   Every colour is the look's own, pinned on the root by repo-viewer.js
+   (tokens()); these are only the places they go. ui-build-conventions: no
+   pills, no edge glow; the caption is type on the sky, the mark a quiet line. */
+:root { --ink: #e9e6f5; --paper: #0b0d2a; --pen: #e9c46a; --world-face: ui-monospace, Consolas, monospace; --world-type: var(--ink); --world-sky: #0b0d2a; --world-room: none; --world-glass: rgba(20, 22, 50, 0.72); }
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: var(--paper); color: var(--ink); overflow: hidden; }
+body { font-family: var(--world-face); -webkit-font-smoothing: antialiased; }
+.world-sky { position: fixed; inset: 0; background: var(--world-sky); }
+#world { position: fixed; inset: 0; width: 100%; height: 100%; display: block; outline: none; touch-action: none; }
+.world-room { position: fixed; inset: 0; pointer-events: none; background: var(--world-room); }
+.world-head { position: fixed; left: clamp(18px, 4vw, 48px); top: clamp(18px, 4vh, 44px); max-width: min(560px, 82vw); pointer-events: none; color: var(--world-type); opacity: 0; transform: translateY(6px); transition: opacity 900ms ease, transform 900ms ease; }
+[data-state="ready"] .world-head { opacity: 1; transform: none; }
+.world-title { margin: 0; font-weight: 600; font-size: clamp(26px, 4.4vw, 44px); line-height: 1.08; letter-spacing: 0.01em; }
+.world-sub { margin: 8px 0 0; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--pen); }
+.world-reading { margin: 14px 0 0; font-size: 15px; line-height: 1.55; color: var(--ink-2, var(--ink)); max-width: 46ch; }
+[data-case="small-caps"] .world-title, [data-case="small-caps"] .world-sub { font-variant: small-caps; text-transform: none; letter-spacing: 0.06em; }
+[data-case="upper"] .world-title { text-transform: uppercase; }
+.world-foot { position: fixed; right: clamp(14px, 3vw, 32px); bottom: clamp(12px, 3vh, 28px); display: flex; gap: 18px; align-items: baseline; font-size: 12px; letter-spacing: 0.06em; }
+.world-foot a { color: var(--ink-3, var(--ink)); text-decoration: none; padding: 6px 2px; border-bottom: 1px solid transparent; transition: color 200ms ease, border-color 200ms ease; }
+.world-foot a:hover, .world-foot a:focus-visible { color: var(--ink); border-bottom-color: var(--pen); outline: none; }
+[data-state="failed"] .world-sub { color: var(--ink); }
+/* the invitation (G.1): there from the start for anyone who looks for it, and
+   brought forward when the journey ends; a full button, never a pill or an edge */
+.world-invite { position: fixed; left: clamp(18px, 4vw, 48px); bottom: clamp(56px, 9vh, 88px); max-width: min(420px, 82vw); padding: 16px 18px;
+  background: var(--world-glass); color: var(--world-type); border: 1px solid var(--rule, rgba(255, 255, 255, 0.15)); border-radius: 12px;
+  opacity: 0.6; transform: translateY(4px); transition: opacity 900ms ease, transform 900ms ease; }
+[data-invite="arrived"] .world-invite { opacity: 1; transform: none; }
+.world-invite-line { margin: 0 0 12px; font-size: 16px; line-height: 1.5; }
+.world-invite-go { display: inline-block; padding: 10px 16px; font-size: 16px; font-weight: 600; color: var(--paper); background: var(--pen); border-radius: 8px; text-decoration: none; }
+.world-invite-go:hover, .world-invite-go:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+@media (max-width: 700px) {
+  .world-reading { font-size: 14px; max-width: none; }
+  .world-foot { left: 14px; right: 14px; justify-content: space-between; }
+}
+@media (prefers-reduced-motion: reduce) { .world-head, .world-invite { transition: none; transform: none; } }

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en" data-state="loading">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'">
+<meta name="referrer" content="no-referrer">
+<title>A world</title>
+<link rel="stylesheet" href="viewer/repo-viewer.css">
+</head>
+<body>
+<div class="world-sky" aria-hidden="true"></div>
+<canvas id="world" tabindex="0" aria-label="A project, drawn as a living globe of its places"></canvas>
+<div class="world-room" aria-hidden="true"></div>
+<header class="world-head">
+<h1 class="world-title" id="world-title"></h1>
+<p class="world-sub" id="world-sub" hidden></p>
+<p class="world-reading" id="world-reading" hidden></p>
+</header>
+<aside class="world-invite" id="world-invite" aria-label="Get in touch" hidden>
+<p class="world-invite-line" id="world-invite-line"></p>
+<a class="world-invite-go" id="world-invite-go" rel="noopener noreferrer">Get in touch</a>
+</aside>
+<footer class="world-foot">
+<a class="world-github" id="world-github" rel="noopener noreferrer" hidden>View on GitHub</a>
+<a class="world-mark" href="https://aportlandcareer.com/astrolabe/?from=a-repo-world" rel="noopener noreferrer">Made with Astrolabe</a>
+</footer>
+<script defer src="viewer/seed-world.js"></script>
+<script defer src="viewer/sea-art.js"></script>
+<script defer src="viewer/sea-art-engine.js"></script>
+<script defer src="viewer/course-art.js"></script>
+<script defer src="viewer/globe.js"></script>
+<script defer src="viewer/repo-policy.js"></script>
+<script defer src="viewer/repo-draw.js"></script>
+<script defer src="viewer/repo-viewer.js"></script>
+</body>
+</html>
